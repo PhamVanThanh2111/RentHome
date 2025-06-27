@@ -1,14 +1,17 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "../pages/Home";
-import About from "../pages/About";
+import { Routes, Route, Navigate } from "react-router-dom"
+import LoginPage from "../pages/LoginPage"
+import RegisterPage from "../pages/RegisterPage"
+import { ROUTES } from "../constants/routes"
 
-export default function AppRoutes() {
+const AppRoutes = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
-    </BrowserRouter>
-  );
+    <Routes>
+      <Route path={ROUTES.HOME} element={<Navigate to={ROUTES.LOGIN} replace />} />
+      <Route path={ROUTES.LOGIN} element={<LoginPage />} />
+      <Route path={ROUTES.REGISTER} element={<RegisterPage />} />
+      {/* Add more routes here */}
+    </Routes>
+  )
 }
+
+export default AppRoutes
