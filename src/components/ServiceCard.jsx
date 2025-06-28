@@ -1,4 +1,4 @@
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
 
 const ServiceCard = ({ service }) => {
   return (
@@ -8,11 +8,13 @@ const ServiceCard = ({ service }) => {
           <div dangerouslySetInnerHTML={{ __html: service.icon }} />
         </div>
       </div>
-      <h3 className="text-xl font-semibold text-gray-900 mb-3">{service.title}</h3>
+      <h3 className="text-xl font-semibold text-gray-900 mb-3">
+        {service.title}
+      </h3>
       <p className="text-gray-600 leading-relaxed">{service.description}</p>
     </div>
-  )
-}
+  );
+};
 
 ServiceCard.propTypes = {
   service: PropTypes.shape({
@@ -21,6 +23,6 @@ ServiceCard.propTypes = {
     description: PropTypes.string.isRequired,
     icon: PropTypes.string.isRequired,
   }).isRequired,
-}
+};
 
-export default ServiceCard
+export default ServiceCard;

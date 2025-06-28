@@ -1,9 +1,9 @@
-import { useState } from "react"
-import { Link } from "react-router-dom"
-import { ROUTES } from "../constants/routes"
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { ROUTES } from "../constants/routes";
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <header className="bg-white shadow-sm border-b">
@@ -20,16 +20,28 @@ const Header = () => {
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link to="#" className="text-gray-700 hover:text-[#11928f] font-medium">
+            <Link
+              to="#"
+              className="text-gray-700 hover:text-[#11928f] font-medium"
+            >
               Rent with ToletX
             </Link>
-            <Link to="#" className="text-gray-700 hover:text-[#11928f] font-medium">
+            <Link
+              to="#"
+              className="text-gray-700 hover:text-[#11928f] font-medium"
+            >
               Property Categories
             </Link>
-            <Link to="#" className="text-gray-700 hover:text-[#11928f] font-medium">
+            <Link
+              to="#"
+              className="text-gray-700 hover:text-[#11928f] font-medium"
+            >
               Ideas
             </Link>
-            <Link to="#" className="text-gray-700 hover:text-[#11928f] font-medium">
+            <Link
+              to="#"
+              className="text-gray-700 hover:text-[#11928f] font-medium"
+            >
               Office Shifting Services
             </Link>
           </nav>
@@ -41,14 +53,29 @@ const Header = () => {
                 3
               </span>
               <button className="p-2">
-                <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-5 5-5-5h5v-12" />
+                <svg
+                  className="w-6 h-6 text-gray-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 17h5l-5 5-5-5h5v-12"
+                  />
                 </svg>
               </button>
             </div>
 
             <button className="p-2">
-              <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg
+                className="w-6 h-6 text-gray-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -63,21 +90,38 @@ const Header = () => {
             </Link>
 
             <div className="flex items-center space-x-2">
-              <img src="/placeholder.svg?height=32&width=32" alt="User" className="w-8 h-8 rounded-full" />
+              <img
+                src="/placeholder.svg?height=32&width=32"
+                alt="User"
+                className="w-8 h-8 rounded-full"
+              />
               <span className="text-gray-700 font-medium">Ariful</span>
             </div>
           </div>
 
           {/* Mobile menu button */}
-          <button className="md:hidden p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          <button
+            className="md:hidden p-2"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
             </svg>
           </button>
         </div>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
