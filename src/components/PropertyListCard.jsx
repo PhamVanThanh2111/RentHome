@@ -1,8 +1,25 @@
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 
 const PropertyListCard = ({ property }) => {
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    navigate(`/property/${property.id}`);
+  };
+
+  const handleBookNowClick = (e) => {
+    e.stopPropagation(); // Prevent card click when clicking Book Now
+    console.log("Book Now clicked for property:", property.id);
+    // You can add booking logic here or navigate to booking page
+  };
+
   return (
-    <div className="bg-white rounded-lg shadow-sm border hover:shadow-md transition-shadow p-4 mb-4">
+    <div
+      className="bg-white rounded-lg shadow-sm border hover:shadow-md transition-shadow p-4 mb-4 cursor-pointer"
+      onClick={handleCardClick}
+    >
+      {/* Rest of the component remains the same */}
       <div className="flex gap-4">
         {/* Property Image */}
         <div className="flex-shrink-0">
@@ -53,7 +70,7 @@ const PropertyListCard = ({ property }) => {
             </div>
           </div>
 
-          <p className="text-sm text-gray-600 mb-3">{property.location}</p>
+          <p className="text-sm text-gray-600 mb-2">{property.location}</p>
 
           <div className="flex flex-wrap gap-2 mb-3">
             {property.amenities?.map((amenity, index) => (
@@ -81,7 +98,10 @@ const PropertyListCard = ({ property }) => {
               </svg>
               {property.distance}
             </div>
-            <button className="bg-[#11928f] hover:bg-[#0e7a77] text-white px-6 py-2 rounded-md font-medium transition-colors">
+            <button
+              className="bg-[#11928f] hover:bg-[#0e7a77] text-white px-6 py-2 rounded-md font-medium transition-colors"
+              onClick={handleBookNowClick}
+            >
               Book Now
             </button>
           </div>

@@ -3,6 +3,7 @@ import HomePage from "../pages/HomePage";
 import SearchResultsPage from "../pages/SearchResultsPage";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
+import RealEstateDetailPage from "../pages/RealEstateDetailPage";
 import { ROUTES } from "../constants/routes";
 
 const AppRoutes = () => {
@@ -12,6 +13,7 @@ const AppRoutes = () => {
       <Route path={ROUTES.SEARCH} element={<SearchResultsPage />} />
       <Route path={ROUTES.LOGIN} element={<LoginPage />} />
       <Route path={ROUTES.REGISTER} element={<RegisterPage />} />
+      <Route path="/property/:id" element={<RealEstateDetailPage />} />
       {/* Add more routes here */}
     </Routes>
   );
