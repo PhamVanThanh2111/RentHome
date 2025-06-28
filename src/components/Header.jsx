@@ -1,9 +1,14 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ROUTES } from "../constants/routes";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleProfileClick = () => {
+    navigate("/profile");
+  };
 
   return (
     <header className="bg-white shadow-sm border-b">
@@ -89,13 +94,18 @@ const Header = () => {
               Become a Partner
             </Link>
 
-            <div className="flex items-center space-x-2">
+            <div
+              className="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 rounded-lg p-2 transition-colors"
+              onClick={handleProfileClick}
+            >
               <img
                 src="/placeholder.svg?height=32&width=32"
                 alt="User"
                 className="w-8 h-8 rounded-full"
               />
-              <span className="text-gray-700 font-medium">Ariful</span>
+              <span className="text-gray-700 font-medium hover:text-[#11928f]">
+                Ariful
+              </span>
             </div>
           </div>
 
