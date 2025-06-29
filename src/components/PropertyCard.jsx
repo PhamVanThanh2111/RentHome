@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 const PropertyCard = ({ property }) => {
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+    <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-2xl transition-shadow">
       <div className="relative">
         <img
           src={property.image || "/placeholder.svg"}

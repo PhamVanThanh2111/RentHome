@@ -320,41 +320,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* App Download */}
-      <section className="py-16 bg-gradient-to-r from-[#11928f] to-[#0e7a77]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
-            <div className="text-white">
-              <h3 className="text-3xl font-bold mb-4">
-                Download ToletX App for FREE
-              </h3>
-              <p className="text-lg mb-6">
-                Get the best deals and manage your bookings on the go
-              </p>
-              <div className="flex space-x-4">
-                <img
-                  src="/placeholder.svg?height=50&width=150"
-                  alt="Download on App Store"
-                  className="h-12"
-                />
-                <img
-                  src="/placeholder.svg?height=50&width=150"
-                  alt="Get it on Google Play"
-                  className="h-12"
-                />
-              </div>
-            </div>
-            <div className="hidden md:block">
-              <img
-                src="/placeholder.svg?height=400&width=300"
-                alt="Mobile App"
-                className="h-80"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
       <Footer />
     </div>
   );

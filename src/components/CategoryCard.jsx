@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 const CategoryCard = ({ category }) => {
   return (
-    <div className="relative rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow cursor-pointer">
+    <div className="relative rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-shadow cursor-pointer">
       <img
         src={category.image || "/placeholder.svg"}
         alt={category.name}

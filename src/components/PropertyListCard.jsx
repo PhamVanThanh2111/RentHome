@@ -16,7 +16,7 @@ const PropertyListCard = ({ property }) => {
 
   return (
     <div
-      className="bg-white rounded-lg shadow-sm border hover:shadow-md transition-shadow p-4 mb-4 cursor-pointer"
+      className="bg-white rounded-lg shadow-sm border hover:shadow-xl transition-shadow p-4 mb-4 cursor-pointer"
       onClick={handleCardClick}
     >
       {/* Rest of the component remains the same */}
