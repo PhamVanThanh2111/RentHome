@@ -1,6 +1,18 @@
 import PropTypes from "prop-types";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const ProfileSidebar = ({ activeSection, onSectionChange }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleSectionClick = (sectionId) => {
+    if (sectionId === "dashboard") {
+      navigate("/dashboard");
+    } else {
+      navigate("/profile", { state: { activeSection: sectionId } });
+    }
+  };
+
   const menuItems = [
     {
       id: "dashboard",
@@ -44,6 +56,14 @@ const ProfileSidebar = ({ activeSection, onSectionChange }) => {
     },
   ];
 
+  // Determine the current active section based on the current route
+  const getCurrentActiveSection = () => {
+    if (location.pathname === "/dashboard") {
+      return "dashboard";
+    }
+    return activeSection;
+  };
+
   return (
     <div className="w-64 bg-white rounded-lg shadow-sm border h-fit sticky top-4">
       <div className="p-4">
@@ -52,9 +72,9 @@ const ProfileSidebar = ({ activeSection, onSectionChange }) => {
           {menuItems.map((item) => (
             <button
               key={item.id}
-              onClick={() => onSectionChange(item.id)}
+              onClick={() => handleSectionClick(item.id)}
               className={`w-full flex items-center px-3 py-2 text-sm rounded-md transition-colors ${
-                activeSection === item.id
+                getCurrentActiveSection() === item.id
                   ? "bg-[#11928f] text-white"
                   : "text-gray-700 hover:bg-gray-100"
               }`}

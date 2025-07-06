@@ -6,4 +6,5 @@ export const ROUTES = {
   FORGOT_PASSWORD: "/forgot-password",
   PROFILE: "/profile",
   REAL_ESTATE_DETAIL: "/property/:id",
+  DASHBOARD: "/dashboard",
 };

@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ProfileSidebar from "../components/ProfileSidebar";
@@ -10,7 +10,12 @@ import InfoDisplay from "../components/InfoDisplay";
 
 const MyProfilePage = () => {
   const navigate = useNavigate();
-  const [activeSection, setActiveSection] = useState("profile-info");
+  const location = useLocation();
+
+  // Initialize activeSection from navigation state or default to "profile-info"
+  const [activeSection, setActiveSection] = useState(
+    location.state?.activeSection || "profile-info"
+  );
   const [isEditing, setIsEditing] = useState(false);
 
   const [profileData, setProfileData] = useState({
@@ -129,6 +134,21 @@ const MyProfilePage = () => {
     "Arabic",
     "French",
   ];
+
+  // Handle navigation state changes
+  useEffect(() => {
+    if (location.state?.activeSection) {
+      setActiveSection(location.state.activeSection);
+    }
+  }, [location.state]);
+
+  const handleSectionChange = (sectionId) => {
+    setActiveSection(sectionId);
+    // Clear the navigation state after handling it
+    if (location.state?.activeSection) {
+      navigate("/profile", { replace: true });
+    }
+  };
 
   const renderViewMode = () => (
     <div className="bg-white rounded-lg shadow-sm border p-8">
@@ -706,7 +726,7 @@ const MyProfilePage = () => {
           {/* Sidebar */}
           <ProfileSidebar
             activeSection={activeSection}
-            onSectionChange={setActiveSection}
+            onSectionChange={handleSectionChange}
           />
 
           {/* Main Content */}
@@ -767,8 +787,76 @@ const MyProfilePage = () => {
               </div>
             </div>
 
-            {/* Content */}
-            {isEditing ? renderEditMode() : renderViewMode()}
+            {/* Content - Show different content based on activeSection */}
+            {activeSection === "profile-info" && (
+              <>{isEditing ? renderEditMode() : renderViewMode()}</>
+            )}
+
+            {activeSection === "notifications" && (
+              <div className="bg-white rounded-lg shadow-sm border p-8">
+                <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                  Notifications
+                </h2>
+                <p className="text-gray-600">
+                  Notification settings and preferences will be displayed here.
+                </p>
+              </div>
+            )}
+
+            {activeSection === "payment-history" && (
+              <div className="bg-white rounded-lg shadow-sm border p-8">
+                <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                  Payment & Rental History
+                </h2>
+                <p className="text-gray-600">
+                  Your payment and rental history will be displayed here.
+                </p>
+              </div>
+            )}
+
+            {activeSection === "account-settings" && (
+              <div className="bg-white rounded-lg shadow-sm border p-8">
+                <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                  Account Settings
+                </h2>
+                <p className="text-gray-600">
+                  Account settings and preferences will be displayed here.
+                </p>
+              </div>
+            )}
+
+            {activeSection === "privacy-settings" && (
+              <div className="bg-white rounded-lg shadow-sm border p-8">
+                <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                  Privacy Settings
+                </h2>
+                <p className="text-gray-600">
+                  Privacy settings and controls will be displayed here.
+                </p>
+              </div>
+            )}
+
+            {activeSection === "language-region" && (
+              <div className="bg-white rounded-lg shadow-sm border p-8">
+                <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                  Language & Region
+                </h2>
+                <p className="text-gray-600">
+                  Language and region preferences will be displayed here.
+                </p>
+              </div>
+            )}
+
+            {activeSection === "referral-program" && (
+              <div className="bg-white rounded-lg shadow-sm border p-8">
+                <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                  Referral Program
+                </h2>
+                <p className="text-gray-600">
+                  Referral program details and rewards will be displayed here.
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>
