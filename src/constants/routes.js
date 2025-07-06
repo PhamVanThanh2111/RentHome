@@ -7,4 +7,5 @@ export const ROUTES = {
   PROFILE: "/profile",
   REAL_ESTATE_DETAIL: "/property/:id",
   DASHBOARD: "/dashboard",
+  DASHBOARD_PARTNER: "/dashboard-partner",
 };
